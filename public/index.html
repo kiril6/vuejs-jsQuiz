@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Test your javascript knowledge | Js-Quiz">
+    <meta name="keywords" content="javascript test, javascript fast quiz, check javascript knowledge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Kiril Delovski | Delovski.net">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"> -->
+
+    <meta property="og:title" content="Test your javascript knowledge">
+    <meta property="og:type" content="js-quiz">
+    <meta property="og:url" content="https://js-quiz.delovski.net">
+    <meta property="og:image" content="https://js-quiz.delovski.net/img/js-quiz.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Check you javascript knowledge">
+
+
+    <!-- <link rel="icon" type="image/png" href="<%= BASE_URL %>favicon.ico"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= BASE_URL %>img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= BASE_URL %>img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<%= BASE_URL %>img/favicon/site.webmanifest">
+
+    <link rel="canonical" href="https://js-quiz.delovski.net">
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVCKFWYW71"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NVCKFWYW71');
+    </script>
+  </head>
+  <body style="background-color: #41403e;" oncopy="alert('copying is disabled'); return false;" oncut="alert('cutting is disabled'); return false" onpaste="alert('pasting is disabled'); return false" onselectstart="return false">
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
