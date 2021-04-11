@@ -22,7 +22,7 @@
 
         <div v-if="this.$route.name === 'Failed'" class="card-body">
             <div class="row flex-center margin-bottom-small">
-                <p class="margin-right text-warning"><b>{{ 6 - trueAnswers.length }} mistaken of 6</b></p><span v-if="this.failStep1">|</span>
+                <p v-if="trueAnswers.length > 0" class="margin-right text-warning"><b>{{ 7 - trueAnswers.length }} mistaken of 6</b></p><span v-if="this.failStep1">|</span>
                 <p v-if="this.failStep1" style="cursor: pointer;" @click="startOver" class="modal-text margin-left"><b class="underline">Try solving again &#128521;</b></p>
             </div>
             <!-- subscribe if quiz can not re do think how will be presented, maybe in popup -->
@@ -106,7 +106,7 @@ export default {
             location.hash = 'follow';
         },
         startOver() {
-            location.reload();
+            location.href = "https://js-quiz.delovski.net";
         },
     }
 };
