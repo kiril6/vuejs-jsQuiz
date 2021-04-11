@@ -211,7 +211,7 @@ export default {
             setInterval(() => {
                 this.getLocalStorage();
                 if (!this.hasLocalStorage) {
-                    location.reload();
+                    location.href = "https://js-quiz.delovski.net";
                 }
             }, 2000);
         },
