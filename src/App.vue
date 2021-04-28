@@ -1,6 +1,6 @@
 <template>
 <div id="app2" class="paper">
-
+<!-- add on vmodel .lazy -->
     <div class="paper-container container-md">
         <nav class="border fixed split-nav" :style="[ this.countDown===0 ? {'pointer-events': 'none'} : '']">
             <div class="nav-brand text-primary">
@@ -136,6 +136,12 @@ export default {
 
         // disable right click
         document.body.addEventListener('contextmenu', event => event.preventDefault());
+
+        const width  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+        if (width <= 812) {
+            window.scrollTo(0, 98);
+        }
     },
 
     props: {
@@ -347,14 +353,35 @@ export default {
         }
     }
 
+    .nav-brand h3 {
+        @media only screen and (max-width: 768px) {
+            padding-right: 58px;
+        }
+    }
+
     .bar1,
     .bar2,
     .bar3 {
         margin: 3px 0;
     }
 
-    .modal-body a {
-        background-image: none;
+    .modal {
+        overflow-y: auto;
+    }
+
+    .modal-body {
+
+        @media only screen and (max-width: 768px) {
+            margin-top: 7.2rem;
+        }
+
+        @media only screen and (orientation: landscape) and (max-width: 812px)  {
+            margin-top: 13rem;
+        }
+    
+        a {
+            background-image: none;
+        }
     }
 }
 </style>

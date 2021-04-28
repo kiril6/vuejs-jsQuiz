@@ -1,6 +1,6 @@
 <template>
 <div class="row">
-    <div class="card text-primary" style="width: 28em; letter-spacing: 0.08em">
+    <div class="card text-primary margin-top holder">
         <div class="card-header" style="text-transform: uppercase">
             <strong v-if="this.$route.name === 'Success'">You have solved the quiz <span class="text-warning">successfully!</span></strong>
             <strong v-if="this.$route.name === 'Failed'">You have <span class="text-danger">'Failed'</span> solving the quiz. &#128533;</strong></div>
@@ -10,9 +10,9 @@
             <h4 v-if="emailSent" class="card-title">You have subscribed!</h4>
             <h5 class="card-subtitle" style="color: white;"><template v-if="!emailSent">or </template> <span @click="followMe" class="text-primary" style="text-decoration: underline; cursor: pointer">follow me</span></h5>
             <div class="row flex-center">
-                <form v-if="!emailSent || emailError" @submit="formSubmit" method="post">
+                <form v-if="!emailSent || emailError" @submit.prevent="formSubmit" method="post">
                     <input v-model="form.email" autocomplete="off" class="text-center margin-top flex-center" type="email" name="email" id="email" placeholder="enter your@email.com" minlength="5" size="45" />
-                    <button name="submit" type="submit" :disabled="form.email.length > 4 && form.email.includes('@' && '.')? false : true" class="margin-top margin-left">Subscribe me</button>
+                    <button name="submit" type="submit" :disabled="form.email.length > 4 && form.email.includes('@' , '.')? false : true" class="margin-top margin-left">Subscribe me</button>
                 </form>
                 <div v-if="emailError" class="margin-top text-danger">Error occured, try again.</div>
             </div>
@@ -23,7 +23,7 @@
         <div v-if="this.$route.name === 'Failed'" class="card-body">
             <div class="row flex-center margin-bottom-small">
                 <p v-if="trueAnswers.length > 0" class="margin-right text-warning"><b>{{ 7 - trueAnswers.length }} mistaken of 6</b></p><span v-if="this.failStep1">|</span>
-                <p v-if="this.failStep1" style="cursor: pointer;" @click="startOver" class="modal-text margin-left"><b class="underline">Try solving again &#128521;</b></p>
+                <p v-if="failStep1" style="cursor: pointer;" @click="startOver" class="modal-text margin-left"><b class="underline">Try solving again &#128521;</b></p>
             </div>
             <!-- subscribe if quiz can not re do think how will be presented, maybe in popup -->
             <h4 class="card-title">You can improve your knowledge by having this booklet!</h4>
@@ -33,6 +33,15 @@
             </div>
             <h3 class="card-subtitle" style="color: white;">or</h3>
             <p class="modal-text">Read the blog post <a href="https://delovski.net/initio/blog-post-3.html"><span class="text-warning">"How to pass a javascript interview"</span></a></p>
+            <!-- <div v-if="failStep2" class="row flex-center">
+                <h4 v-if="!emailSent" class="card-title">Subscribe for updates!</h4>
+                <h4 v-if="emailSent" class="card-title">You have subscribed!</h4>
+                <form v-if="!emailSent || emailError" @submit.prevent="formSubmit" method="post">
+                    <input v-model="form.email" autocomplete="off" class="text-center margin-top flex-center" type="email" name="email" id="email" placeholder="enter your@email.com" minlength="5" size="45" />
+                    <button name="submit" type="submit" :disabled="form.email.length > 4 && form.email.includes('@' , '.')? false : true" class="margin-top margin-left">Subscribe me</button>
+                </form>
+                <div v-if="emailError" class="margin-top text-danger">Error occured, try again.</div>
+            </div> -->
         </div>
         <div class="card-footer">@Copyright <a class="text-primary" href="http://delovski.net"><b>Delovski.net</b></a></div>
     </div>
@@ -53,6 +62,7 @@ export default {
             emailSent: false,
             emailError: false,
             failStep1: false,
+            failStep2: false,
             trueAnswers: []
         }
     },
@@ -61,7 +71,8 @@ export default {
             if (localStorage.getItem('jsQuiz') && JSON.parse(localStorage.getItem('jsQuiz'))[0] === 'Advanced' && JSON.parse(localStorage.getItem('jsQuiz'))[1] === 'Failed1') {
                 this.failStep1 = true;
             } else if (localStorage.getItem('jsQuiz') && JSON.parse(localStorage.getItem('jsQuiz'))[0] === 'Advanced' && JSON.parse(localStorage.getItem('jsQuiz'))[1] === 'Failed2') {
-                this.failStep1 = false
+                this.failStep1 = false;
+                this.failStep2 = true;
             }
 
             Object.values(this.$route.query).forEach((value) => {
@@ -85,8 +96,7 @@ export default {
         }
     },
     methods: {
-        formSubmit(e) {
-            e.preventDefault();
+        formSubmit() {
             this.axios.post('https://js-quiz.delovski.net/send-email/send-email.php', querystring.stringify(this.form))
                 .then(res => {
                     //Perform Success Action
@@ -123,6 +133,14 @@ a:visited {
 
     &:hover {
         border-bottom: 2px solid;
+    }
+}
+
+.holder {
+    width: 18em;
+    letter-spacing: 0.08em;
+    @media only screen and (min-width: 769px) {
+        width: 28em;
     }
 }
 </style>
