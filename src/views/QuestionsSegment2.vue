@@ -10,7 +10,7 @@
                     <h4>1) Question:</h4>
                     <div class="padding-left-large margin-top-small">
                         <div class="row flex-middle">
-                            Write the javascript comparison operator for a variable to be not equal by its type and value <input v-model="regularQuestions[0]" @input="regularQuestions[0]=$event.target.value.toLowerCase(), sendit('first')" type="text" placeholder="..." id="1stAnswer1" class="margin-left-small margin-right-small" maxlength="3" size="5" tabindex="1">
+                            Write the javascript comparison operator for a variable to be not equal by its type and value <input v-model.lazy="regularQuestions[0]" @input="regularQuestions[0]=$event.target.value.toLowerCase(), sendit('first')" type="text" placeholder="..." id="1stAnswer1" class="margin-left-small margin-right-small" maxlength="3" size="5" tabindex="1">
                         </div>
                     </div>
                     <h4>2) Question:</h4>
@@ -18,13 +18,13 @@
                         <fieldset class="form-group">
                             <legend>What is the short well known abbreviation for ‘Immediately Invoked Function Expression‘ – which is a JavaScript function that runs as soon as it is defined:</legend>
                             <label for="2ndAnswer1" class="paper-radio" tabindex="2" @change="sendit('second')">
-                                <input v-model="regularQuestions[1]" type="radio" name="2ndAnswer1" id="2ndAnswer1" value="option1"> <span>JSON</span>
+                                <input v-model.lazy="regularQuestions[1]" type="radio" name="2ndAnswer1" id="2ndAnswer1" value="option1"> <span>JSON</span>
                             </label>
                             <label for="2ndAnswer2" class="paper-radio" tabindex="3" @change="sendit('second')">
-                                <input v-model="regularQuestions[1]" type="radio" name="2ndAnswer2" id="2ndAnswer2" value="option2"> <span>IIFE</span>
+                                <input v-model.lazy="regularQuestions[1]" type="radio" name="2ndAnswer2" id="2ndAnswer2" value="option2"> <span>IIFE</span>
                             </label>
                             <label for="2ndAnswer3" class="paper-radio" tabindex="4" @change="sendit('second')">
-                                <input v-model="regularQuestions[1]" type="radio" name="2ndAnswer3" id="2ndAnswer3" value="option3"> <span>EVAL</span>
+                                <input v-model.lazy="regularQuestions[1]" type="radio" name="2ndAnswer3" id="2ndAnswer3" value="option3"> <span>EVAL</span>
                             </label>
                         </fieldset>
                     </div>
@@ -40,13 +40,13 @@
                     <h4>3) Question:</h4>
                     <div class="padding-left-large margin-top-small">
                         <div class="row flex-middle">
-                            What are ‘Dictionaries’ - are objects with <input v-model="regularQuestions[2]" @input="regularQuestions[2]=$event.target.value.toLowerCase(), sendit2('first')" type="text" placeholder="..." id="3rdAnswer1" class="margin-left-small margin-right-small" maxlength="4" size="5" tabindex="5"> and <input v-model="regularQuestions[3]" @input="regularQuestions[3]=$event.target.value.toLowerCase(), sendit2('second')" type="text" placeholder="..." id="3rdAnswer2" class="margin-left-small margin-right-small" maxlength="6" size="6" tabindex="6">
+                            What are ‘Dictionaries’ - are objects with <input v-model.lazy="regularQuestions[2]" @input="regularQuestions[2]=$event.target.value.toLowerCase(), sendit2('first')" type="text" placeholder="..." id="3rdAnswer1" class="margin-left-small margin-right-small" maxlength="4" size="5" tabindex="5"> and <input v-model.lazy="regularQuestions[3]" @input="regularQuestions[3]=$event.target.value.toLowerCase(), sendit2('second')" type="text" placeholder="..." id="3rdAnswer2" class="margin-left-small margin-right-small" maxlength="6" size="6" tabindex="6">
                         </div>
                     </div>
                     <h4>4) Question:</h4>
                     <div class="padding-left-large margin-top-small">
                         <div class="row flex-middle">
-                            What is the well know short abbreviation for JavaScript Object Notation <input v-model="regularQuestions[4]" @input="regularQuestions[4]=$event.target.value.toLowerCase(), sendit2('third')" type="text" placeholder="..." id="4thAnswer1" class="margin-left-small margin-right-small" maxlength="4" size="5" tabindex="6">
+                            What is the well know short abbreviation for JavaScript Object Notation <input v-model.lazy="regularQuestions[4]" @input="regularQuestions[4]=$event.target.value.toLowerCase(), sendit2('third')" type="text" placeholder="..." id="4thAnswer1" class="margin-left-small margin-right-small" maxlength="4" size="5" tabindex="6">
                         </div>
                     </div>
                 </div>
@@ -63,13 +63,13 @@
                         <fieldset class="form-group">
                             <legend>If we want to write into the HTML output we will do that with:</legend>
                             <label for="5thAnswer1" class="paper-radio" tabindex="11" @change="sendit3('first')">
-                                <input v-model="regularQuestions[5]" type="radio" name="5thAnswer1" id="5thAnswer1" value="option1"> <span>window.alert(‘this will be the javascript output’);</span>
+                                <input v-model.lazy="regularQuestions[5]" type="radio" name="5thAnswer1" id="5thAnswer1" value="option1"> <span>window.alert(‘this will be the javascript output’);</span>
                             </label>
                             <label for="5thAnswer2" class="paper-radio" tabindex="12" @change="sendit3('first')">
-                                <input v-model="regularQuestions[5]" type="radio" name="5thAnswer2" id="5thAnswer2" value="option2"> <span>console.log(‘this will be the javascript output’);</span>
+                                <input v-model.lazy="regularQuestions[5]" type="radio" name="5thAnswer2" id="5thAnswer2" value="option2"> <span>console.log(‘this will be the javascript output’);</span>
                             </label>
                             <label for="5thAnswer3" class="paper-radio" tabindex="13" @change="sendit3('first')">
-                                <input v-model="regularQuestions[5]" type="radio" name="5thAnswer3" id="5thAnswer3" value="option3"> <span>document.write(‘this will be the javascript output’);</span>
+                                <input v-model.lazy="regularQuestions[5]" type="radio" name="5thAnswer3" id="5thAnswer3" value="option3"> <span>document.write(‘this will be the javascript output’);</span>
                             </label>
                         </fieldset>
                     </div>
@@ -78,13 +78,13 @@
                         <fieldset class="form-group">
                             <legend>To debug a javascript we need to use the statement:</legend>
                             <label for="6thAnswer1" class="paper-radio" tabindex="14" @change="sendit3('second')">
-                                <input v-model="regularQuestions[6]" type="radio" name="6thAnswer1" id="6thAnswer1" value="option1"> <span>console.log(‘something to debug’);</span>
+                                <input v-model.lazy="regularQuestions[6]" type="radio" name="6thAnswer1" id="6thAnswer1" value="option1"> <span>console.log(‘something to debug’);</span>
                             </label>
                             <label for="6thAnswer2" class="paper-radio" tabindex="15" @change="sendit3('second')">
-                                <input v-model="regularQuestions[6]" type="radio" name="6thAnswer2" id="6thAnswer2" value="option2"> <span>debugger;</span>
+                                <input v-model.lazy="regularQuestions[6]" type="radio" name="6thAnswer2" id="6thAnswer2" value="option2"> <span>debugger;</span>
                             </label>
                             <label for="6thAnswer3" class="paper-radio" tabindex="16" @change="sendit3('second')">
-                                <input v-model="regularQuestions[6]" type="radio" name="6thAnswer3" id="6thAnswer3" value="option3"> <span>try…catch</span>
+                                <input v-model.lazy="regularQuestions[6]" type="radio" name="6thAnswer3" id="6thAnswer3" value="option3"> <span>try…catch</span>
                             </label>
                         </fieldset>
                     </div>

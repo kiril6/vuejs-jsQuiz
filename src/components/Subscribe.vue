@@ -26,22 +26,24 @@
                 <p v-if="failStep1" style="cursor: pointer;" @click="startOver" class="modal-text margin-left"><b class="underline">Try solving again &#128521;</b></p>
             </div>
             <!-- subscribe if quiz can not re do think how will be presented, maybe in popup -->
-            <h4 class="card-title">You can improve your knowledge by having this booklet!</h4>
+            <h4 v-if="failStep1" class="card-title">You can improve your knowledge by having this booklet!</h4>
+            <h4 v-if="failStep2" class="card-title">You have tryed your luck for solving the quiz. Buy the booklet to</h4>
             <br />
             <div class="row flex-center">
                 <a href="https://gumroad.com/l/HkTmS/js-quiz-promo"><img src="../assets/book-cover.png" alt="js booklet" style="width: 100%; max-width: 400px;" /></a>
             </div>
+            <h4 v-if="failStep2" class="card-title">improve your knowledge,</h4>
             <h3 class="card-subtitle" style="color: white;">or</h3>
             <p class="modal-text">Read the blog post <a href="https://delovski.net/initio/blog-post-3.html"><span class="text-warning">"How to pass a javascript interview"</span></a></p>
-            <!-- <div v-if="failStep2" class="row flex-center">
-                <h4 v-if="!emailSent" class="card-title">Subscribe for updates!</h4>
+            <div v-if="failStep2" class="row flex-center margin-top">
+                <h4 v-if="!emailSent" class="card-title">& subscribe for updates!</h4>
                 <h4 v-if="emailSent" class="card-title">You have subscribed!</h4>
                 <form v-if="!emailSent || emailError" @submit.prevent="formSubmit" method="post">
                     <input v-model="form.email" autocomplete="off" class="text-center margin-top flex-center" type="email" name="email" id="email" placeholder="enter your@email.com" minlength="5" size="45" />
                     <button name="submit" type="submit" :disabled="form.email.length > 4 && form.email.includes('@' , '.')? false : true" class="margin-top margin-left">Subscribe me</button>
                 </form>
                 <div v-if="emailError" class="margin-top text-danger">Error occured, try again.</div>
-            </div> -->
+            </div>
         </div>
         <div class="card-footer">@Copyright <a class="text-primary" href="http://delovski.net"><b>Delovski.net</b></a></div>
     </div>

@@ -11,13 +11,13 @@
                     <h4>1) Question:</h4>
                     <div class="padding-left-large margin-top-small">
                         <div class="row flex-middle">
-                            JavaScript is a client-side and server-side <input v-model="regularQuestions[0]" @input="regularQuestions[0]=$event.target.value.toLowerCase(), sendit('first')" type="text" placeholder="Type answer here" id="1stAnswer1" class="margin-left-small margin-right-small" maxlength="11" size="11" tabindex="1"> language.
+                            JavaScript is a client-side and server-side <input v-model.lazy="regularQuestions[0]" @input="regularQuestions[0]=$event.target.value.toLowerCase(), sendit('first')" type="text" placeholder="Type answer here" id="1stAnswer1" class="margin-left-small margin-right-small" maxlength="11" size="11" tabindex="1"> language.
                         </div>
                     </div>
                     <h4>2) Question:</h4>
                     <div class="padding-left-large margin-top-small">
                         <div class="row flex-middle">
-                            In javascript the 2 data types that cannot contain values are <input v-model="regularQuestions[1]" @input="regularQuestions[1]=$event.target.value.toLowerCase(), sendit('second')" type="text" placeholder="..." id="2ndAnswer1" class="margin-left-small margin-right-small" maxlength="4" size="5" tabindex="2"> and <input v-model="regularQuestions[2]" @input="regularQuestions[2]=$event.target.value.toLowerCase(), sendit('third')" type="text" placeholder="..." id="2ndAnswer2" class="margin-left-small margin-right-small" maxlength="9" size="9" tabindex="3">
+                            In javascript the 2 data types that cannot contain values are <input v-model.lazy="regularQuestions[1]" @input="regularQuestions[1]=$event.target.value.toLowerCase(), sendit('second')" type="text" placeholder="..." id="2ndAnswer1" class="margin-left-small margin-right-small" maxlength="4" size="5" tabindex="2"> and <input v-model.lazy="regularQuestions[2]" @input="regularQuestions[2]=$event.target.value.toLowerCase(), sendit('third')" type="text" placeholder="..." id="2ndAnswer2" class="margin-left-small margin-right-small" maxlength="9" size="9" tabindex="3">
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                     <h4>3) Question:</h4>
                     <div class="padding-left-large margin-top-small">
                         <div class="row flex-middle">
-                            Write the javascript comparison operator when we need to compare a variable by both type and value <input v-model="regularQuestions[3]" @input="regularQuestions[3]=$event.target.value.toLowerCase(), sendit2('first')" type="text" placeholder="..." id="3dAnswer1" class="margin-left-small margin-right-small" maxlength="3" size="5" tabindex="1">
+                            Write the javascript comparison operator when we need to compare a variable by both type and value <input v-model.lazy="regularQuestions[3]" @input="regularQuestions[3]=$event.target.value.toLowerCase(), sendit2('first')" type="text" placeholder="..." id="3dAnswer1" class="margin-left-small margin-right-small" maxlength="3" size="5" tabindex="1">
                         </div>
                     </div>
                     <h4>4) Question:</h4>
@@ -40,13 +40,13 @@
                         <fieldset class="form-group">
                             <legend>Which are the 3 Javascript variables:</legend>
                             <label for="4thAnswer1" class="paper-radio" tabindex="2" @change="sendit2('second')">
-                                <input v-model="regularQuestions[4]" type="radio" name="4thAnswer1" id="4thAnswer1" value="option1"> <span>if, for, let</span>
+                                <input v-model.lazy="regularQuestions[4]" type="radio" name="4thAnswer1" id="4thAnswer1" value="option1"> <span>if, for, let</span>
                             </label>
                             <label for="4thAnswer2" class="paper-radio" tabindex="3" @change="sendit2('second')">
-                                <input v-model="regularQuestions[4]" type="radio" name="4thAnswer2" id="4thAnswer2" value="option2"> <span>switch, const, else if</span>
+                                <input v-model.lazy="regularQuestions[4]" type="radio" name="4thAnswer2" id="4thAnswer2" value="option2"> <span>switch, const, else if</span>
                             </label>
                             <label for="4thAnswer3" class="paper-radio" tabindex="4" @change="sendit2('second')">
-                                <input v-model="regularQuestions[4]" type="radio" name="4thAnswer3" id="4thAnswer3" value="option3"> <span>var, let, const</span>
+                                <input v-model.lazy="regularQuestions[4]" type="radio" name="4thAnswer3" id="4thAnswer3" value="option3"> <span>var, let, const</span>
                             </label>
                         </fieldset>
                     </div>
@@ -64,13 +64,13 @@
                         <fieldset class="form-group">
                             <legend>If we want to display something in browser console, we will do that with:</legend>
                             <label for="5thAnswer1" class="paper-radio" tabindex="1" @change="sendit3('first')">
-                                <input v-model="regularQuestions[5]" type="radio" name="5thAnswer1" id="5thAnswer1" value="option1"> <span>window.alert(‘this will be the javascript output’);</span>
+                                <input v-model.lazy="regularQuestions[5]" type="radio" name="5thAnswer1" id="5thAnswer1" value="option1"> <span>window.alert(‘this will be the javascript output’);</span>
                             </label>
                             <label for="5thAnswer2" class="paper-radio" tabindex="2" @change="sendit3('first')">
-                                <input v-model="regularQuestions[5]" type="radio" name="5thAnswer2" id="5thAnswer2" value="option2"> <span>console.log(‘this will be the javascript output’);</span>
+                                <input v-model.lazy="regularQuestions[5]" type="radio" name="5thAnswer2" id="5thAnswer2" value="option2"> <span>console.log(‘this will be the javascript output’);</span>
                             </label>
                             <label for="5thAnswer3" class="paper-radio" tabindex="3" @change="sendit3('first')">
-                                <input v-model="regularQuestions[5]" type="radio" name="5thAnswer3" id="5thAnswer3" value="option3"> <span>document.write(‘this will be the javascript output’);</span>
+                                <input v-model.lazy="regularQuestions[5]" type="radio" name="5thAnswer3" id="5thAnswer3" value="option3"> <span>document.write(‘this will be the javascript output’);</span>
                             </label>
                         </fieldset>
                     </div>
@@ -79,13 +79,13 @@
                         <fieldset class="form-group">
                             <legend>Which one are javascript data structures:</legend>
                             <label for="6thAnswer1" class="paper-radio" tabindex="3" @change="sendit3('second')">
-                                <input v-model="regularQuestions[6]" type="radio" name="6thAnswer1" id="6thAnswer1" value="option1"> <span>functions</span>
+                                <input v-model.lazy="regularQuestions[6]" type="radio" name="6thAnswer1" id="6thAnswer1" value="option1"> <span>functions</span>
                             </label>
                             <label for="6thAnswer2" class="paper-radio" tabindex="4" @change="sendit3('second')">
-                                <input v-model="regularQuestions[6]" type="radio" name="6thAnswer2" id="6thAnswer2" value="option2"> <span>for, while, do</span>
+                                <input v-model.lazy="regularQuestions[6]" type="radio" name="6thAnswer2" id="6thAnswer2" value="option2"> <span>for, while, do</span>
                             </label>
                             <label for="6thAnswer3" class="paper-radio" tabindex="5" @change="sendit3('second')">
-                                <input v-model="regularQuestions[6]" type="radio" name="6thAnswer3" id="6thAnswer3" value="option3"> <span>Arrays, Objects</span>
+                                <input v-model.lazy="regularQuestions[6]" type="radio" name="6thAnswer3" id="6thAnswer3" value="option3"> <span>Arrays, Objects</span>
                             </label>
                         </fieldset>
                     </div>
